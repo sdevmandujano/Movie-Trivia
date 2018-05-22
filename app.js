@@ -20,7 +20,7 @@ function start() {
 
 //Displays the Score of the user in Alert
 function displayScore(pos) {
-  alert("You got  " + pos + " out of 6 questions right, to retry click 'ok' button");
+  alert("You got  " + pos + " out of 6 questions right, to retry click 'refresh' button");
   $("#r").html("Target  " + pos);
 }
 
