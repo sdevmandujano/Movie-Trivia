@@ -1,4 +1,3 @@
-//window.posGlobal=0;
 
 function start() {
   var rightAnswers = ["c","c","a","c","b","b"];
@@ -6,7 +5,7 @@ function start() {
   var strTemp;
   var positiveScore = 0;
   //alert(document.getElementById("myform").elements)
-  for (var i = 1; i <= rightAnswers.length; i++) {
+  for (var i = 1; i <= rightAnswers.length; i++) { //will evaluate all answers
     strTemp = "q" + String(i); // concatenation for get the element in the following object
     // strTemp gives q1, q2, q3, depending in the i iteration
     userInput = document.getElementById("myform").elements[strTemp]; // get the elements of the form
@@ -19,13 +18,14 @@ function start() {
   return positiveScore;
 }
 
+//Displays the Score of the user in Alert
 function displayScore(pos) {
-  alert(pos);
+  alert("You got  " + pos + " out of 6 questions right, to retry click 'ok' button");
   $("#r").html("Target  " + pos);
 }
 
 
-
+//This is the timer 
     function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     var pos;
@@ -41,17 +41,18 @@ function displayScore(pos) {
         if (--timer < 0) {
           pos = start();
           window.posGlobal = pos;
-          window.location.href = "end.html";
           displayScore(pos);
             timer = duration;
+           
+
         }
     }, 1000);
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 0.1,
+    var minutes = 60 * .800,
         display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(minutes, display);
       $("#r").html("Target  " + window.posGlobal);
 };
 
